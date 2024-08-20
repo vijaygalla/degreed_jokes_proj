@@ -25,8 +25,8 @@ class JokeBloc extends Bloc<JokeEvent, JokeState> {
 
   void fetchRandomJoke() async {
     final JokesRepository repository = JokesRepository();
-    emit(JokesLoadingState());
     try {
+      emit(JokesLoadingState());
       final jokes = await repository.getRandomJoke();
       emit(JokesLoadedState(jokes));
     } on IOException catch (exception) {

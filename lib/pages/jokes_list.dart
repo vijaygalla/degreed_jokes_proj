@@ -54,7 +54,7 @@ class _JokesListState extends State<JokesList> {
                 );
               }
               if (state is JokesLoadedState) {
-                loadedJokesWidget(state.jokes);
+                return loadedJokesWidget(state.jokes);
               }
               return Center(
                 child: CircularProgressIndicator(

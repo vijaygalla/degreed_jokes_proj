@@ -1,2 +1,2 @@
 const randomJokeApi = "https://icanhazdadjoke.com/";
-const searchJokeApi = "https://icanhazdadjoke.com/search?term=";
+const searchJokeApi = "${randomJokeApi}search?term=";
