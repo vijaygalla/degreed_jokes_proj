@@ -1,5 +1,5 @@
-import 'package:dad_jokes/blocs_models/joke_bloc.dart';
-import 'package:dad_jokes/pages/jokes_list.dart';
+import 'package:dad_jokes/Blocs/joke_bloc.dart';
+import 'package:dad_jokes/Pages/jokes_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

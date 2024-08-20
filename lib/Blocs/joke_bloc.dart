@@ -1,9 +1,9 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member
 
 import 'dart:io';
-import 'package:dad_jokes/blocs_models/event/joke_event.dart';
-import 'package:dad_jokes/blocs_models/state/joke_state.dart';
-import 'package:dad_jokes/data_layer/repositories/jokes_repository.dart';
+import 'package:dad_jokes/Blocs/event/joke_event.dart';
+import 'package:dad_jokes/Blocs/state/joke_state.dart';
+import 'package:dad_jokes/NetworkLayer/Repositories/jokes_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Bloc main business logic will be handled in this class

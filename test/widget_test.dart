@@ -1,11 +1,11 @@
-import 'package:dad_jokes/constants/network_constants.dart';
+import 'package:dad_jokes/Constants/network_constants.dart';
 import 'package:dad_jokes/models/joke_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
 import 'widget_test.mocks.dart';
-import 'package:dad_jokes/data_layer/repositories/jokes_repository.dart';
+import 'package:dad_jokes/NetworkLayer/Repositories/jokes_repository.dart';
 
 /*calling live api calls will slow down the test execution
 hence we are mocking the real api data instead calling the live api call

@@ -1,9 +1,9 @@
-import 'package:dad_jokes/blocs_models/event/joke_event.dart';
-import 'package:dad_jokes/blocs_models/joke_bloc.dart';
-import 'package:dad_jokes/blocs_models/state/joke_state.dart';
-import 'package:dad_jokes/commons/progress_widget.dart';
-import 'package:dad_jokes/constants/debouncer.dart';
-import 'package:dad_jokes/constants/network_constants.dart';
+import 'package:dad_jokes/Blocs/event/joke_event.dart';
+import 'package:dad_jokes/Blocs/joke_bloc.dart';
+import 'package:dad_jokes/Blocs/state/joke_state.dart';
+import 'package:dad_jokes/Commons/progress_widget.dart';
+import 'package:dad_jokes/Constants/debouncer.dart';
+import 'package:dad_jokes/Constants/network_constants.dart';
 import 'package:dad_jokes/models/joke_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
