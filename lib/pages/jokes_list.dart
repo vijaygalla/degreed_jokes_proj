@@ -1,7 +1,9 @@
 import 'package:dad_jokes/blocs_models/event/joke_event.dart';
 import 'package:dad_jokes/blocs_models/joke_bloc.dart';
 import 'package:dad_jokes/blocs_models/state/joke_state.dart';
+import 'package:dad_jokes/commons/progress_widget.dart';
 import 'package:dad_jokes/constants/debouncer.dart';
+import 'package:dad_jokes/constants/network_constants.dart';
 import 'package:dad_jokes/models/joke_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +23,13 @@ class _JokesListState extends State<JokesList> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("I can haz dad joke"),
+        title: const Text(
+          "I can haz dad joke",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         backgroundColor: Colors.brown.shade800,
         foregroundColor: Colors.white,
         centerTitle: true,
@@ -32,6 +40,7 @@ class _JokesListState extends State<JokesList> {
             padding: const EdgeInsets.all(12.0),
             child: SearchBar(
               hintText: "Search",
+              elevation: const WidgetStatePropertyAll(2),
               onChanged: (value) {
                 debouncer.run(() {
                   context.read<JokeBloc>().add(SearchQueryEvent(value));
@@ -40,6 +49,7 @@ class _JokesListState extends State<JokesList> {
             ),
           ),
           Expanded(
+            // BlocProvider will receive the events and state management
             child: BlocBuilder<JokeBloc, JokeState>(builder: (context, state) {
               if (state is JokesErrorState) {
                 return Center(
@@ -56,11 +66,7 @@ class _JokesListState extends State<JokesList> {
               if (state is JokesLoadedState) {
                 return loadedJokesWidget(state.jokes);
               }
-              return Center(
-                child: CircularProgressIndicator(
-                  color: Colors.brown.shade800,
-                ),
-              );
+              return const ProgressWidget();
             }),
           ),
         ],
@@ -68,19 +74,22 @@ class _JokesListState extends State<JokesList> {
     );
   }
 
+// widget for after loaded the data from jokes API
   Widget loadedJokesWidget(List<Result> results) {
     if (results.isEmpty) {
-      return const Center(
+      // If no search results found show a static message
+      return Center(
         child: Text(
-          "No Search results",
+          noResults,
           style: TextStyle(
-            color: Colors.red,
+            color: Colors.brown.shade800,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
       );
     } else {
+      // once results found populate the jokes data from API into the listview using listview builder.
       return ListView.builder(
           itemCount: results.length,
           itemBuilder: (context, index) {

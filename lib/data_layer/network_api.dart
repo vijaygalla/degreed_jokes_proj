@@ -5,6 +5,7 @@ const Map<String, String> header = {
   'Accept': 'application/json',
 };
 
+// using http package for API
 class NetworkApi {
   Future<Response> getData(String endPoint) async {
     try {

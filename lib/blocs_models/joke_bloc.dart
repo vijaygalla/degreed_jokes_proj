@@ -6,12 +6,16 @@ import 'package:dad_jokes/blocs_models/state/joke_state.dart';
 import 'package:dad_jokes/data_layer/repositories/jokes_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// Bloc main business logic will be handled in this class
 class JokeBloc extends Bloc<JokeEvent, JokeState> {
+  // initial state is data loading state
   JokeBloc() : super(JokesLoadingState()) {
     fetchJokes();
   }
 
   void fetchJokes() {
+    // loading data for the first time with random joke
+    // if searchQueryEvent finds a query so it will fetch searched results
     on<SearchQueryEvent>(
       (event, emit) async {
         if (event.searchQuery.isEmpty) {
@@ -23,6 +27,7 @@ class JokeBloc extends Bloc<JokeEvent, JokeState> {
     );
   }
 
+  // loading data for the first time with random joke
   void fetchRandomJoke() async {
     final JokesRepository repository = JokesRepository();
     try {
@@ -34,6 +39,7 @@ class JokeBloc extends Bloc<JokeEvent, JokeState> {
     }
   }
 
+  // if searchQueryEvent finds a query so it will fetch searched results
   void fetchSearchJokes(String query) async {
     final JokesRepository repository = JokesRepository();
     emit(JokesLoadingState());
