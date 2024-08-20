@@ -14,8 +14,8 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# degreed_jokes_proj
-# using the version Flutter 3.22.2 & Tools • Dart 3.4.3 • DevTools 2.34.3
+# Windows : using the version Flutter 3.24.0 & Tools • Dart 3.5.0 • DevTools 2.37.2
+# Mac OS : using the version Flutter 3.22.2 & Tools • Dart 3.4.3 • DevTools 2.34.3
 # Please follow these instructions before running the application
 Flutter 3.22.2 • channel stable • https://github.com/flutter/flutter.git
 Framework • revision 761747bfc5 (3 months ago) • 2024-06-05 22:15:13 +0200
